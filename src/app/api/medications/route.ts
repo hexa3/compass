@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import type { MedicationUnit } from "@prisma/client";
 import { getCurrentUser } from "@/lib/auth-utils";
 import { medicationSchema } from "@/lib/validations";
 
@@ -56,7 +57,7 @@ export async function POST(request: NextRequest) {
       data: {
         name: data.name,
         dosage: data.dosage,
-        unit: data.unit as any || "MG",
+        unit: (data.unit as MedicationUnit | undefined) || "MG",
         frequency: data.frequency,
         timeOfDay: data.timeOfDay ? data.timeOfDay.split(",").map((s: string) => s.trim()).filter(Boolean) : [],
         notes: data.notes || null,

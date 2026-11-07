@@ -31,6 +31,8 @@ export default function LandingPage() {
     const isDarkMode =
       localStorage.getItem("theme") === "dark" ||
       (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    // Read the saved theme after mount so server and client markup match.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsDark(isDarkMode);
 
     const handleScroll = () => setScrolled(window.scrollY > 20);

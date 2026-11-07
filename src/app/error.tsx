@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Heart, AlertTriangle } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Error({
@@ -28,9 +29,9 @@ export default function Error({
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button onClick={reset}>Try Again</Button>
-          <a href="/">
+          <Link href="/">
             <Button variant="outline">Return Home</Button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

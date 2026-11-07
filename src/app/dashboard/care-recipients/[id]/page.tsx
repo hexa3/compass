@@ -75,10 +75,6 @@ export default function CareRecipientDetailPage() {
   const [loading, setLoading] = useState(true);
   const [generatingPlan, setGeneratingPlan] = useState(false);
 
-  useEffect(() => {
-    loadRecipient();
-  }, [params.id]);
-
   async function loadRecipient() {
     try {
       const res = await fetch(`/api/care-recipients/${params.id}`);
@@ -93,6 +89,10 @@ export default function CareRecipientDetailPage() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    loadRecipient();
+  }, [params.id]);
 
   async function generateCarePlan() {
     setGeneratingPlan(true);
