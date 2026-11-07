@@ -91,6 +91,8 @@ export default function CareRecipientDetailPage() {
   }
 
   useEffect(() => {
+    // Fetching on mount; state updates happen after the request resolves.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadRecipient();
   }, [params.id]);
 
